@@ -1,0 +1,5 @@
+@use './variables';
+
+@function get-color() {
+  @return variables.$primary;
+}

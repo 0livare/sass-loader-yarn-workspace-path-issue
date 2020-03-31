@@ -1,0 +1,7 @@
+@use '@test/second';
+@use '@test/second/functions';
+
+.foo {
+  background: second.$primary;
+  color: functions.get-color();
+}

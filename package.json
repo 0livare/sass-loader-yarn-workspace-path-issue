@@ -1,0 +1,23 @@
+{
+  "name": "sass-loader-yarn-workspace-path-issue",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "css-loader": "3.4.2",
+    "extract-loader": "5.0.1",
+    "file-loader": "6.0.0",
+    "sass": "1.26.3",
+    "sass-loader": "8.0.2",
+    "webpack": "4.42.1",
+    "webpack-cli": "3.3.11"
+  },
+  "scripts": {
+    "use-sass": "sass --load-path=node_modules packages/third/_index.scss:dist/bundle.css",
+    "use-webpack": "webpack"
+  }
+}

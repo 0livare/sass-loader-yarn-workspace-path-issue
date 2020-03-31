@@ -1,0 +1,8 @@
+{
+  "name": "@test/third",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "@test/second": "1.0.0"
+  }
+}
