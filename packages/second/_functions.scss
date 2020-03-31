@@ -1,4 +1,4 @@
-@use './variables';
+@use '@test/second/variables';
 
 @function get-color() {
   @return variables.$primary;
