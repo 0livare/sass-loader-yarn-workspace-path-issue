@@ -51,3 +51,34 @@ SassError: This module was already loaded, so it can't be configured using "with
 ```
 
 > Notice: Both the new load and original load point to the same exact file, but the paths are different. One paths through the `packages/` directory and the other passes through the `node_modules` directory. Because of how yarn workspaces works, the file located in `node_modules/` is actually a simlinked version of the file located in `packages/`
+
+## Workaround
+
+This issue can be worked around by changing all of the relative import paths in this project to use absolute import paths. This change has been made on the `workaround` branch.
+
+```diff
+diff --git a/packages/first/_index.scss b/packages/first/_index.scss
+index 9a64ba2..141bcc9 100644
+--- a/packages/first/_index.scss
++++ b/packages/first/_index.scss
+@@ -1 +1 @@
+-@forward './variables';
++@forward '@test/first/variables';
+diff --git a/packages/second/_functions.scss b/packages/second/_functions.scss
+index 1261031..b595aea 100644
+--- a/packages/second/_functions.scss
++++ b/packages/second/_functions.scss
+@@ -1,4 +1,4 @@
+-@use './variables';
++@use '@test/second/variables';
+
+ @function get-color() {
+   @return variables.$primary;
+diff --git a/packages/second/_index.scss b/packages/second/_index.scss
+index 9a64ba2..d7391cc 100644
+--- a/packages/second/_index.scss
++++ b/packages/second/_index.scss
+@@ -1 +1 @@
+-@forward './variables';
++@forward '@test/second/variables';
+```
